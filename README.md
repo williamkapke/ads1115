@@ -25,7 +25,20 @@ i2c.openPromisified(1).then(async (bus) => {
 })
 ```
 
-# API
+## Install
+https://npmjs.com/package/ads1115
+
+    npm install ads1115 i2c-bus
+
+
+#### *i2c-bus not included in dependencies
+To prevent multiple  instances of [i2c-bus](https://npmjs.com/package/i2c-bus)
+being installed in your project- it is NOT included as a dependency. You just
+need to install it separately.
+
+This also allows you to swap in a different bus, such as an [i2cdriver](https://npmjs.com/package/i2cdriver) if desired.
+
+## API
 
 ### ads1115.gain
 Gets or sets the gain. You can use a `Number` or `String`.
