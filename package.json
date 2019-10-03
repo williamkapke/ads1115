@@ -1,0 +1,22 @@
+{
+  "name": "ads1115",
+  "version": "1.0.0",
+  "description": "A Node.js library for an ads1115 analog to digital converter",
+  "main": "ads1115.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamkapke/ADS1115.git"
+  },
+  "author": "William Kapke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/williamkapke/ADS1115/issues"
+  },
+  "homepage": "https://github.com/williamkapke/ADS1115#readme",
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
+}
