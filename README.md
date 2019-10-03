@@ -11,7 +11,6 @@ The display is: [here](https://amzn.to/2pEUCZz)<br>
 
 ```js
 const ADS1115 = require('ads1115')
-const map = (value) => Math.floor((value - MIN) * 127 / (MAX - MIN));
 
 const i2c = require('i2c-bus')
 i2c.openPromisified(1).then(async (bus) => {
