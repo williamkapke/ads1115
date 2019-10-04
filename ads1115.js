@@ -69,3 +69,6 @@ module.exports = (bus, addr = 0x48, delay = 100, shift = 0) => {
     }
   }
 }
+module.exports.open = (busNum, addr = 0x48, provider = 'i2c-bus') => {
+  return require(provider).openPromisified(busNum).then((bus) => module.exports(bus, addr))
+}

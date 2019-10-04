@@ -10,6 +10,23 @@ The display is: [here](https://amzn.to/2pEUCZz)<br>
 ![tfmini-plus](ads1115.gif)
 
 ```js
+// const connection = [1, 0x48, 'i2c-bus']
+//  use an `i2cdriver` board for development!...
+const connection = ['/dev/tty.usbserial-DO010000', 0x48, 'i2cdriver/i2c-bus']
+
+ADS1115.open(...connection).then(async (ads1115) => {
+  ads1115.gain = 1
+
+  for (var i = 0; i < 1000; i++) {
+    let x = await ads1115.measure('0+GND')
+    let y = await ads1115.measure('1+GND')
+    console.log(x, y)
+  }
+})
+```
+
+**Or, use with an existing bus instance:**
+```js
 const ADS1115 = require('ads1115')
 
 const i2c = require('i2c-bus')
@@ -38,6 +55,18 @@ need to install it separately.
 This also allows you to swap in a different bus, such as an [i2cdriver](https://npmjs.com/package/i2cdriver) if desired.
 
 ## API
+
+### ADS1115(bus, addr = 0x48)
+Creates an ADS1115 instance using and existing `bus` object.
+
+### ADS1115.open(busNum, addr = 0x48, provider = 'i2c-bus')
+Opens an i2c bus and creates a new `ads1115` instance.
+
+`busNum` - The bus to open<br>
+`addr` - The address of the ads1115 device<br>
+`provider` - The i2c module to use to open the bus. (default [i2c-bus](https://npmjs.com/package/i2c-bus))<br>
+&nbsp;&nbsp; The module must conform to the [i2c-bus](https://npmjs.com/package/i2c-bus)@^5.0.0 interface.<br>
+&nbsp;&nbsp; **TIP!** Try an [i2cdriver](https://npmjs.com/package/i2cdriver) for development!
 
 ### ads1115.gain
 Gets or sets the gain. You can use a `Number` or `String`.
