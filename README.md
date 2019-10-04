@@ -17,7 +17,7 @@ const connection = ['/dev/tty.usbserial-DO010000', 0x48, 'i2cdriver/i2c-bus']
 ADS1115.open(...connection).then(async (ads1115) => {
   ads1115.gain = 1
 
-  for (var i = 0; i < 1000; i++) {
+  for (let i = 0; i < 1000; i++) {
     let x = await ads1115.measure('0+GND')
     let y = await ads1115.measure('1+GND')
     console.log(x, y)
