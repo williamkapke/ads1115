@@ -26,7 +26,7 @@ const gains = {
   '16':  0b0000101000000000,  // +/- 0.256V
 }
 
-module.exports = (bus, addr = 0x48, delay = 100, shift = 0) => {
+module.exports = (bus, addr = 0x48, delay = 10, shift = 0) => {
   let gain = gains['2/3']
 
   const writeReg16 = (register, value) => {
@@ -54,6 +54,8 @@ module.exports = (bus, addr = 0x48, delay = 100, shift = 0) => {
       if (level === (2/3)) level = '2/3'
       gain = gains[level] || gain
     },
+    _delay: delay,
+    _shift: shift,
 
     writeLowThreshold: (threshold) => writeReg16(addr, 0b10, threshold << shift),
     writeHiThreshold: (threshold) => writeReg16(addr, 0b11, threshold << shift),
