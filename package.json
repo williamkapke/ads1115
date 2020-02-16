@@ -10,6 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/williamkapke/ADS1115.git"
   },
+  "keywords": [
+      "ads1115",
+      "ads",
+      "ads 1115",
+      "1115",
+      "adc",
+      "analog to to digital converter",
+      "digital converter"
+    ],
   "author": "William Kapke",
   "license": "MIT",
   "bugs": {
